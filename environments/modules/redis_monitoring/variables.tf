@@ -3,10 +3,6 @@ variable "redis_instance_id" {
   description = "Redis instance ID"
 }
 
-variable "memory_threshold_bytes" {
-  type        = number
-  description = "Memory usage threshold in bytes"
-}
 
 
 
