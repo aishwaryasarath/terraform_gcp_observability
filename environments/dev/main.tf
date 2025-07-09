@@ -23,7 +23,7 @@ module "redis_monitoring" {
   source                 = "../modules/redis_monitoring"
   project_id             = var.project
   redis_instance_id      = module.redis_instance.instance_id
-  memory_threshold_bytes = 500000000 # 
+
   environment            = "dev"
   region                 = "us-central1"
 
