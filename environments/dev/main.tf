@@ -20,12 +20,11 @@ module "bucket2" {
 }
 
 module "redis_monitoring" {
-  source                 = "../modules/redis_monitoring"
-  project_id             = var.project
-  redis_instance_id      = module.redis_instance.instance_id
-
-  environment            = "dev"
-  region                 = "us-central1"
+  source            = "../modules/redis_monitoring"
+  project_id        = var.project
+  redis_instance_id = module.redis_instance.instance_id
+  environment       = "dev"
+  region            = "us-central1"
 
 }
 
