@@ -14,9 +14,13 @@ output "bucket2_url" {
 #   value = module.redis_monitoring.dashboard_id
 # }
 
-# output "redis_alert_policy_ids" {
-#   value = module.redis_monitoring.alert_policy_ids
-# }
+output "redis_alert_policy_ids" {
+  value = module.redis_monitoring.alert_policy_ids
+}
+
+output "redis_alert_policy_names" {
+  value = module.redis_monitoring.alert_policy_names
+}
 
 output "redis_oom_logging_metric" {
   value = module.redis_monitoring.oom_logging_metric_name
