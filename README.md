@@ -4,3 +4,7 @@ for i in {1..10000}; do redis-cli -h <REDIS_IP> set key$i "$(head -c 10000 /dev/
 ```
 
 
+# failover
+```
+gcloud redis instances failover dev-redis-instance --region us-central1
+```
