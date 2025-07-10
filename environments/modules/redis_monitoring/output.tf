@@ -13,24 +13,26 @@ output "oom_logging_metric_name" {
   value       = google_logging_metric.oom_errors.name
 }
 
-# output "alert_policy_ids" {
-#   description = "Map of all alert policy IDs"
-#   value = {
-#     high_memory_usage = google_monitoring_alert_policy.high_memory_usage.id
-#     evictions         = google_monitoring_alert_policy.evictions.id
-#     uptime_drop       = google_monitoring_alert_policy.uptime_drop.id
-#     oom_error_alert   = google_monitoring_alert_policy.oom_error_alert.id
-#     #failover_alert    = google_monitoring_alert_policy.failover_alert.id
-#   }
-# }
+output "alert_policy_ids" {
+  description = "Map of all alert policy IDs"
+  value = {
+    redis_memory_utilization = google_monitoring_alert_policy.redis_memory_utilization.id
+    redis_cpu_utilization    = google_monitoring_alert_policy.redis_cpu_utilization.id
+    redis_failover           = google_monitoring_alert_policy.redis_failover.id
+    oom_error_alert          = google_monitoring_alert_policy.oom_error_alert.id
+    test_eviction2           = google_monitoring_alert_policy.test_eviction2.id
 
-# output "alert_policy_names" {
-#   description = "Map of all alert policy display names"
-#   value = {
-#     high_memory_usage = google_monitoring_alert_policy.high_memory_usage.display_name
-#     evictions         = google_monitoring_alert_policy.evictions.display_name
-#     uptime_drop       = google_monitoring_alert_policy.uptime_drop.display_name
-#     oom_error_alert   = google_monitoring_alert_policy.oom_error_alert.display_name
-#     #failover_alert    = google_monitoring_alert_policy.failover_alert.display_name
-#   }
-# }
+  }
+}
+
+output "alert_policy_names" {
+  description = "Map of all alert policy display names"
+  value = {
+    redis_memory_utilization = google_monitoring_alert_policy.redis_memory_utilization.name
+    redis_cpu_utilization    = google_monitoring_alert_policy.redis_cpu_utilization.name
+    redis_failover           = google_monitoring_alert_policy.redis_failover.name
+    oom_error_alert          = google_monitoring_alert_policy.oom_error_alert.name
+    test_eviction2           = google_monitoring_alert_policy.test_eviction2.name
+
+  }
+}
