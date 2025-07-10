@@ -4,8 +4,6 @@ variable "redis_instance_id" {
 }
 
 
-
-
 variable "environment" {
   type = string
 }
