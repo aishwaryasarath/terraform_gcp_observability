@@ -36,3 +36,25 @@ module "redis_instance" {
   memory_size_gb = 1
   display_name   = "Dev Redis"
 }
+
+
+module "gcs_monitoring" {
+  source      = "../modules/gcs_monitoring"
+  bucket_name = module.bucket2.bucket_name
+
+}
+
+resource "google_project_iam_audit_config" "gcs_audit" {
+  project = var.project
+
+  service = "storage.googleapis.com"
+
+  audit_log_config {
+    log_type = "DATA_READ"
+  }
+
+  audit_log_config {
+    log_type = "DATA_WRITE"
+  }
+}
+
