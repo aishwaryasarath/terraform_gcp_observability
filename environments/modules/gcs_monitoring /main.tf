@@ -39,7 +39,7 @@ resource "google_monitoring_alert_policy" "gcs_error_alerts" {
       filter          = "resource.type=\"gcs_bucket\" AND metric.type=\"logging.googleapis.com/user/gcs_error_${each.key}\""
       comparison      = "COMPARISON_GT"
       threshold_value = 0
-      duration        = "0s"
+      duration        = "60s" # <- only alert if issue persists for one minute. This can be discussed.
 
       aggregations {
         alignment_period   = "60s"
@@ -84,7 +84,7 @@ EOT
     display_name = "GCS Bucket Deletion"
   }
 }
-
+# instead of this alert - it is better to combine IAM deny policy to prevent actual deletion of bucket.
 resource "google_monitoring_alert_policy" "bucket_deletion_alert" {
   display_name = "GCS Bucket Deletion - ${var.bucket_name}"
   combiner     = "OR"
