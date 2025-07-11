@@ -25,3 +25,24 @@ output "redis_alert_policy_names" {
 output "redis_oom_logging_metric" {
   value = module.redis_monitoring.oom_logging_metric_name
 }
+
+
+output "gcs_alert_policy_names" {
+  description = "Map of GCS alert policy display names per error code"
+  value       = module.gcs_monitoring.gcs_error_alert_policy_names
+}
+
+output "gcs_alert_policy_ids" {
+  description = "Map of GCS alert policy IDs per error code"
+  value       = module.gcs_monitoring.gcs_error_alert_policy_ids
+}
+
+output "gcs_log_metric_names" {
+  description = "List of GCS error log-based metric names"
+  value       = module.gcs_monitoring.gcs_error_log_metric_names
+}
+
+output "gcs_log_metric_display_names" {
+  description = "List of GCS error log-based metric display names"
+  value       = module.gcs_monitoring.gcs_error_log_metric_display_names
+}
