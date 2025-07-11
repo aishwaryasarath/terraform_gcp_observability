@@ -24,9 +24,7 @@ resource "google_monitoring_alert_policy" "test_eviction2" {
     notification_prompts = ["OPENED", "CLOSED"]
   }
 
-  notification_channels = [
-    "projects/intense-reason-458522-h4/notificationChannels/16837620454532209889"
-  ]
+  notification_channels = [google_monitoring_notification_channel.email.id]
   user_labels = {
     project_id    = var.project_id
     context       = "redis"
@@ -231,9 +229,7 @@ resource "google_monitoring_alert_policy" "redis_failover" {
     auto_close = "604800s"
   }
 
-  notification_channels = [
-    "projects/${var.project_id}/notificationChannels/16837620454532209889"
-  ]
+  notification_channels = [google_monitoring_notification_channel.email.id]
 }
 
 # resource "google_monitoring_alert_policy" "redis_failover" {
